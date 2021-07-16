@@ -13,19 +13,26 @@ from zope.component import getMultiAdapter
 class XlsxExport(BrowserView):
     def __call__(self):
         self.listing_view = getMultiAdapter((self.context, self.request), name=u"view")
-        self.fields = self.listing_view.tabular_fields()
-        self.batch = self.listing_view.batch()
+        batch = self.listing_view.batch()
+        fields = self.listing_view.tabular_fields()
+        rows = self.build_rows(batch, fields)
+        return self.generate_xlsx(rows)
+
+    def build_rows(self, batch, fields):
         rows = []
-        headers = [_(self.tabular_field_label(f).capitalize()) for f in self.fields]
+        headers = [_(self.tabular_field_label(f).capitalize()) for f in fields]
         rows.append(headers)
         data = []
-        for item in self.batch:
-            data_row = []
-            for field in self.fields:
-                _(data_row.append(self.tabular_fielddata(item, field).get("value")))
-            data.append(data_row)
+        for item in batch:
+            row_columns = []
+            for field in fields:
+                field_data = self.tabular_fielddata(item, field).get("value")
+                if not isinstance(field_data, str):
+                    field_data = ", ".join(field_data)
+                _(row_columns.append(field_data))
+            data.append(row_columns)
         rows.extend(data)
-        return self.generate_xlsx(rows)
+        return rows
 
     def tabular_field_label(self, field):
         return self.listing_view.tabular_field_label(field)

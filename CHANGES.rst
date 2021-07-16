@@ -5,7 +5,8 @@ Changelog
 1.0a2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add support for multiple values in meta columns, like keywords
+  [MrTango]
 
 
 1.0a1 (2021-07-16)
