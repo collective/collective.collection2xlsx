@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0a4 (unreleased)
+1.0a4 (2021-07-16)
 ------------------
 
 - Handle Missing.Value in field_data
