@@ -22,7 +22,7 @@ class XlsxExport(BrowserView):
         for item in self.batch:
             data_row = []
             for field in self.fields:
-                _(data_row.append(self.tabular_fielddata(item, field).get('value')))
+                _(data_row.append(self.tabular_fielddata(item, field).get("value")))
             data.append(data_row)
         rows.extend(data)
         return self.generate_xlsx(rows)
@@ -39,7 +39,7 @@ class XlsxExport(BrowserView):
         worksheet = workbook.add_worksheet()
 
         row_index = 0
-        for row in (rows):
+        for row in rows:
             col_index = 0
             for col in row:
                 worksheet.write(row_index, col_index, col)
@@ -49,7 +49,10 @@ class XlsxExport(BrowserView):
         workbook.close()
         output.seek(0)
         filename = self._filename()
-        self.request.response.setHeader("Content-Type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+        self.request.response.setHeader(
+            "Content-Type",
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        )
         self.request.response.setHeader(
             "Content-Disposition", "inline;filename=%s" % filename
         )

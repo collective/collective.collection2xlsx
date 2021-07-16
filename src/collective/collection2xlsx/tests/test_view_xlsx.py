@@ -17,17 +17,16 @@ class ViewsIntegrationTest(unittest.TestCase):
     layer = COLLECTIVE_COLLECTION2XLSX_INTEGRATION_TESTING
 
     def setUp(self):
-        self.portal = self.layer['portal']
-        setRoles(self.portal, TEST_USER_ID, ['Manager'])
-        api.content.create(self.portal, 'Folder', 'other-folder')
-        api.content.create(self.portal, 'Document', 'front-page')
+        self.portal = self.layer["portal"]
+        setRoles(self.portal, TEST_USER_ID, ["Manager"])
+        api.content.create(self.portal, "Folder", "other-folder")
+        api.content.create(self.portal, "Document", "front-page")
 
     def test_xlsx_is_registered(self):
         view = getMultiAdapter(
-            (self.portal['other-folder'], self.portal.REQUEST),
-            name='xlsx'
+            (self.portal["other-folder"], self.portal.REQUEST), name="xlsx"
         )
-        self.assertTrue(view.__name__ == 'xlsx')
+        self.assertTrue(view.__name__ == "xlsx")
         # self.assertTrue(
         #     'Sample View' in view(),
         #     'Sample View is not found in xlsx'
@@ -36,8 +35,7 @@ class ViewsIntegrationTest(unittest.TestCase):
     def test_xlsx_not_matching_interface(self):
         with self.assertRaises(ComponentLookupError):
             getMultiAdapter(
-                (self.portal['front-page'], self.portal.REQUEST),
-                name='xlsx'
+                (self.portal["front-page"], self.portal.REQUEST), name="xlsx"
             )
 
 
@@ -46,5 +44,5 @@ class ViewsFunctionalTest(unittest.TestCase):
     layer = COLLECTIVE_COLLECTION2XLSX_FUNCTIONAL_TESTING
 
     def setUp(self):
-        self.portal = self.layer['portal']
-        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal = self.layer["portal"]
+        setRoles(self.portal, TEST_USER_ID, ["Manager"])

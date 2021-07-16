@@ -21,11 +21,12 @@ class CollectiveCollection2XlsxLayer(PloneSandboxLayer):
         # The z3c.autoinclude feature is disabled in the Plone fixture base
         # layer.
         import plone.restapi
+
         self.loadZCML(package=plone.restapi)
         self.loadZCML(package=collective.collection2xlsx)
 
     def setUpPloneSite(self, portal):
-        applyProfile(portal, 'collective.collection2xlsx:default')
+        applyProfile(portal, "collective.collection2xlsx:default")
 
 
 COLLECTIVE_COLLECTION2XLSX_FIXTURE = CollectiveCollection2XlsxLayer()
@@ -33,13 +34,13 @@ COLLECTIVE_COLLECTION2XLSX_FIXTURE = CollectiveCollection2XlsxLayer()
 
 COLLECTIVE_COLLECTION2XLSX_INTEGRATION_TESTING = IntegrationTesting(
     bases=(COLLECTIVE_COLLECTION2XLSX_FIXTURE,),
-    name='CollectiveCollection2XlsxLayer:IntegrationTesting',
+    name="CollectiveCollection2XlsxLayer:IntegrationTesting",
 )
 
 
 COLLECTIVE_COLLECTION2XLSX_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(COLLECTIVE_COLLECTION2XLSX_FIXTURE,),
-    name='CollectiveCollection2XlsxLayer:FunctionalTesting',
+    name="CollectiveCollection2XlsxLayer:FunctionalTesting",
 )
 
 
@@ -49,5 +50,5 @@ COLLECTIVE_COLLECTION2XLSX_ACCEPTANCE_TESTING = FunctionalTesting(
         REMOTE_LIBRARY_BUNDLE_FIXTURE,
         z2.ZSERVER_FIXTURE,
     ),
-    name='CollectiveCollection2XlsxLayer:AcceptanceTesting',
+    name="CollectiveCollection2XlsxLayer:AcceptanceTesting",
 )
