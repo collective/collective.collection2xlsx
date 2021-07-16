@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0a5 (unreleased)
+1.0a5 (2021-07-16)
 ------------------
 
 - Use tabular_view as listing_view, this brings compatibility with collective.taxonomy >= 2.1.1
