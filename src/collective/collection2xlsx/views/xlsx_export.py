@@ -28,6 +28,9 @@ class XlsxExport(BrowserView):
             row_columns = []
             for field in fields:
                 field_data = self.tabular_fielddata(item, field).get("value")
+                if field == 'Creator':
+                    member_info = self.listing_view.pas_member.info(field_data)
+                    field_data = member_info['fullname'] or member_info['username']
                 if field_data == Missing.Value:
                     field_data = ""
                 if not (isinstance(field_data, str) or isinstance(field_data, int)):

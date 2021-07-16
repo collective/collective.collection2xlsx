@@ -5,7 +5,8 @@ Changelog
 1.0a6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Resolve Creator member info (fullname/username)
+  [MrTango]
 
 
 1.0a5 (2021-07-16)
