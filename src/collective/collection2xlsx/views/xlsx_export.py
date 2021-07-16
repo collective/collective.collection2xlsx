@@ -13,7 +13,7 @@ from zope.component import getMultiAdapter
 
 class XlsxExport(BrowserView):
     def __call__(self):
-        self.listing_view = getMultiAdapter((self.context, self.request), name=u"view")
+        self.listing_view = getMultiAdapter((self.context, self.request), name=u"tabular_view")
         batch = self.listing_view.batch()
         fields = self.listing_view.tabular_fields()
         rows = self.build_rows(batch, fields)

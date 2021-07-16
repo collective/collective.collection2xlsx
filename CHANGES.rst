@@ -5,7 +5,8 @@ Changelog
 1.0a5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Use tabular_view as listing_view, this brings compatibility with collective.taxonomy >= 2.1.1
+  [MrTango]
 
 
 1.0a4 (2021-07-16)
