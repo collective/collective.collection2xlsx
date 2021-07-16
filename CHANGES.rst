@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0a3 (unreleased)
+1.0a3 (2021-07-16)
 ------------------
 
 - Fix support for multiple values in meta columns, like keywords

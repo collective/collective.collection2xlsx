@@ -14,7 +14,7 @@ long_description = "\n\n".join(
 
 setup(
     name="collective.collection2xlsx",
-    version="1.0a3.dev0",
+    version="1.0a3",
     description="Excel export for Plone Collections table view.",
     long_description=long_description,
     # Get more from https://pypi.org/classifiers/
