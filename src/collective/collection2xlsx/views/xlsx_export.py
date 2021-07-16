@@ -27,8 +27,11 @@ class XlsxExport(BrowserView):
             row_columns = []
             for field in fields:
                 field_data = self.tabular_fielddata(item, field).get("value")
-                if not isinstance(field_data, str):
-                    field_data = ", ".join(field_data)
+                if not (isinstance(field_data, str) or isinstance(field_data, int)):
+                    try:
+                        field_data = ", ".join(field_data)
+                    except TypeError:
+                        pass
                 _(row_columns.append(field_data))
             data.append(row_columns)
         rows.extend(data)
