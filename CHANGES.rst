@@ -5,7 +5,8 @@ Changelog
 1.0a4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Handle Missing.Value in field_data
+  [MrTango]
 
 
 1.0a3 (2021-07-16)

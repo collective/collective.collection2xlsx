@@ -2,6 +2,7 @@
 import io
 from datetime import datetime
 
+import Missing
 import xlsxwriter
 from plone.app.contenttypes import _
 from Products.Five.browser import BrowserView
@@ -27,6 +28,8 @@ class XlsxExport(BrowserView):
             row_columns = []
             for field in fields:
                 field_data = self.tabular_fielddata(item, field).get("value")
+                if field_data == Missing.Value:
+                    field_data = ""
                 if not (isinstance(field_data, str) or isinstance(field_data, int)):
                     try:
                         field_data = ", ".join(field_data)
