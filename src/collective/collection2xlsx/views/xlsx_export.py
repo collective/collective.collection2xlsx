@@ -13,7 +13,9 @@ from zope.component import getMultiAdapter
 
 class XlsxExport(BrowserView):
     def __call__(self):
-        self.listing_view = getMultiAdapter((self.context, self.request), name=u"tabular_view")
+        self.listing_view = getMultiAdapter(
+            (self.context, self.request), name=u"tabular_view"
+        )
         batch = self.listing_view.batch()
         fields = self.listing_view.tabular_fields()
         rows = self.build_rows(batch, fields)
@@ -28,9 +30,9 @@ class XlsxExport(BrowserView):
             row_columns = []
             for field in fields:
                 field_data = self.tabular_fielddata(item, field).get("value")
-                if field == 'Creator':
+                if field == "Creator":
                     member_info = self.listing_view.pas_member.info(field_data)
-                    field_data = member_info['fullname'] or member_info['username']
+                    field_data = member_info["fullname"] or member_info["username"]
                 if field_data == Missing.Value:
                     field_data = ""
                 if not (isinstance(field_data, str) or isinstance(field_data, int)):
