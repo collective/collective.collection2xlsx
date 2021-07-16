@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0a6 (unreleased)
+1.0a6 (2021-07-16)
 ------------------
 
 - Resolve Creator member info (fullname/username)
