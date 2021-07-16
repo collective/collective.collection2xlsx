@@ -8,9 +8,8 @@
 
   <browser:page
     name="xlsx"
-    for="Products.CMFCore.interfaces.IFolderish"
+    for="plone.app.contenttypes.interfaces.ICollection"
     class=".xlsx_export.XlsxExport"
-    template="xlsx_export.pt"
     permission="zope2.View"
     />
 

@@ -5,9 +5,8 @@
 .. image:: https://github.com/collective/collective.collection2xlsx/actions/workflows/plone-package.yml/badge.svg
     :target: https://github.com/collective/collective.collection2xlsx/actions/workflows/plone-package.yml
 
-.. image:: https://coveralls.io/repos/github/collective/collective.collection2xlsx/badge.svg?branch=main
-    :target: https://coveralls.io/github/collective/collective.collection2xlsx?branch=main
-    :alt: Coveralls
+.. image:: https://codecov.io/gh/collective/collective.collection2xlsx/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/collective/collective.collection2xlsx
 
 .. image:: https://codecov.io/gh/collective/collective.collection2xlsx/branch/master/graph/badge.svg
     :target: https://codecov.io/gh/collective/collective.collection2xlsx
@@ -31,25 +30,12 @@
 collective.collection2xlsx
 ==========================
 
-Tell me what your product does
+The add-on allows you to export the tabular view of a Collection as an Excel (XLSX) file.
 
 Features
 --------
 
-- Can be bullet points
-
-
-Examples
---------
-
-This add-on can be seen in action at the following sites:
-- Is there a page on the internet where everybody can see the features?
-
-
-Documentation
--------------
-
-Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
+- Export Collection items in XLSX format
 
 
 Translations
@@ -57,7 +43,8 @@ Translations
 
 This product has been translated into
 
-- Klingon (thanks, K'Plai)
+- english
+- german
 
 
 Installation
@@ -75,11 +62,17 @@ Install collective.collection2xlsx by adding it to your buildout::
 
 and then running ``bin/buildout``
 
+Usage
+-----
+
+You can call the ``xlsx`` view on every Collection, but it makes more sence when you choose what columns to show for the tabular view.
+The add-on will add a xlsx-action for Collections, so that users can just click the link to download the list as XLSX file.
+
 
 Authors
 -------
 
-Provided by awesome people ;)
+This add-on was build by `Derico <https://derico.de>`_ [MrTango].
 
 
 Contributors
@@ -95,14 +88,14 @@ Contribute
 
 - Issue Tracker: https://github.com/collective/collective.collection2xlsx/issues
 - Source Code: https://github.com/collective/collective.collection2xlsx
-- Documentation: https://docs.plone.org/foo/bar
+
 
 
 Support
 -------
 
 If you are having issues, please let us know.
-We have a mailing list located at: project@example.com
+
 
 
 License
